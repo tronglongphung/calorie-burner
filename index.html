@@ -4,58 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calorie Counter</title>
     <a href="https://www.jsdelivr.com/package/npm/bulma"></a>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 
     <div>
         <div>
-            <div>
-
                 <header>
                     <h1>Calorie Counter</h1>
                 </header>
-            </div>
         </div>
         <div>
             <div>
                 <div>
                     <aside>
                         <h3>Search food index</h3>
-                        <div>
-                            <div>
-                                <!-- <input type="text" placeholder="Enter Food Choice..."
-                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
-                                    id="searchFoodIndex"> -->
-                                    
+                        <aside>                                    
                                 <div>
                                     <button id="searchBtn" type="button"
                                         onclick="displayCalories()">Search</button>
                                         <input class="input is-warning" type="text" placeholder="Warning input">
                                 </div>
-                            </div>
+                            </aside>
                         </div>
-                        <div id="searchListPrevious">
-                        </div>
-                    </aside>
                 </div>
-            </div>
+        </div>
             <div>
                 <div>
                     <div>
-                        <div id="">
-                            <!-- <h3 id="enterFoodName">Search food</h3> -->
+                        <div class="container">
                             <h5 id="calorieValue">Calorie value:</h5>
                             <h5 id="energy">Energy:</h5>
                             <h5 id="fat">Fat:</h5>
                             <h5 id="sugar">Sugar:</h5>
                             <h5 id="sodium">Sodium:</h5>
                         </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 </body>
 
 </html>
