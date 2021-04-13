@@ -1,51 +1,88 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calorie Counter</title>
-    <a href="https://www.jsdelivr.com/package/npm/bulma"></a>
+    <!-- <a href="https://www.jsdelivr.com/package/npm/bulma"></a> -->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
 
-    <div>
-        <div>
-                <header>
-                    <h1>Calorie Counter</h1>
-                </header>
-        </div>
-        <div>
-            <div>
+    <div class="container mx-auto">
+        <header>
+            <h1>Calorie Counter</h1>
+        </header>
+        <main>
+            <h3>Search food index</h3>
+            <aside>
                 <div>
-                    <aside>
-                        <h3>Search food index</h3>
-                        <aside>                                    
-                                <div>
-                                    <button id="searchBtn" type="button"
-                                        onclick="displayCalories()">Search</button>
-                                        <input class="input is-warning" type="text" placeholder="Warning input">
-                                </div>
-                            </aside>
-                        </div>
+                    <button id="searchBtn" type="button" onclick="displayCalories()">Search</button>
+                    <input class="input is-warning" type="text" placeholder="Warning input">
                 </div>
-        </div>
-            <div>
+            </aside>
+
+            <article>
                 <div>
-                    <div>
-                        <div class="container">
-                            <h5 id="calorieValue">Calorie value:</h5>
-                            <!-- <h5 id="energy">Energy:</h5> -->
-                            <!-- energy and calorie values are the same - only one required -->
-                            <h5 id="fat">Fat:</h5>
-                            <h5 id="sugar">Sugar:</h5>
-                            <h5 id="sodium">Sodium:</h5>
-                        </div>
+                    <div class="container">
+                        <h5 id="calorieValue">Calorie value:</h5>
+                        <!-- <h5 id="energy">Energy:</h5> -->
+                        <!-- energy and calorie values are the same - only one required -->
+                        <h5 id="fat">Fat:</h5>
+                        <h5 id="sugar">Sugar:</h5>
+                        <h5 id="sodium">Sodium:</h5>
                     </div>
                 </div>
-            </div>
+            </article>
+        </main>
+        <section>
+            <!-- component -->
+            <table class="min-w-max w-full table-auto">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">Food</th>
+                        <th class="py-3 px-6 text-left">Calorie</th>
+                        <th class="py-3 px-6 text-center">Proten</th>
+                        <th class="py-3 px-6 text-center">Fat</th>
+                        <th class="py-3 px-6 text-center">Sodium</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left whitespace-nowrap">
+                            Apple
+                        </td>
+                        <td class="py-3 px-6 text-left">
+                            100
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            10g
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            5g
+                        </td>
+                        <td class="py-3 px-6 text-center">
+                            215mg
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Totals</td>
+                        <td>1000</td>
+                        <td>10000g</td>
+                        <td>1231g</td>
+                        <td>822mg</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+
+
 </body>
 
 </html>
