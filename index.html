@@ -22,11 +22,15 @@
                 <div>
                     <aside>
                         <h3>Search food index</h3>
-                        <aside>                                    
+                        <div>
+                            <div>
+                                <!-- <input type="text" placeholder="Enter Food Choice..."
+                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                    id="searchFoodIndex"> -->
                                 <div>
-                                    <button id="searchBtn" type="button"
-                                        onclick="displayCalories()">Search</button>
-                                        <input class="input is-warning" type="text" placeholder="Warning input">
+                                    <form id="searchForm" class="card-body">
+                                        <input class="input is-warning" type="text" placeholder="Insert food name with amount" id="food-name">
+                                    </form>
                                 </div>
                             </aside>
                         </div>
@@ -45,6 +49,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+<script src="./script.js"></script>
 </body>
-
 </html>
