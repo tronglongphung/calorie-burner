@@ -34,12 +34,10 @@
             <article>
                 <div>
                     <div class="container">
-                        <h5 id="calorieValue">Calorie value:</h5>
-                        <!-- <h5 id="energy">Energy:</h5> -->
-                        <!-- energy and calorie values are the same - only one required -->
-                        <h5 id="fat">Fat:</h5>
-                        <h5 id="sugar">Sugar:</h5>
-                        <h5 id="sodium">Sodium:</h5>
+                        <h5>Calorie value: <span id="calorieValue"></span></h5>
+                        <h5>Fat: <span id="fat"></span></h5>
+                        <h5>Sugar: <span id="sugar"></span></h5>
+                        <h5>Sodium: <span id="sodium"></span></h5>
                     </div>
                 </div>
             </article>
@@ -49,41 +47,33 @@
             <table class="min-w-max w-full table-auto">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-
                         <th class="py-3 px-6 text-left">Food</th>
                         <th class="py-3 px-6 text-left">Calorie(kcal)</th>
                         <th class="py-3 px-6 text-center">Sugar(g)</th>
                         <th class="py-3 px-6 text-center">Fat(g)</th>
                         <th class="py-3 px-6 text-center">Sodium(mg)</th>
-
+                        <th class="py-3 px-6 text-center"></th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light table-data">
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left whitespace-nowrap">
-                            Apple
-                        </td>
-                        <td class="py-3 px-6 text-left">
-                            100
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            10g
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            5g
-                        </td>
-                        <td class="py-3 px-6 text-center">
-                            215mg
-                        </td>
+                        <td class="py-3 px-6 text-left whitespace-nowrap"></td>
+                        <td class="py-3 px-6 text-left"></td>
+                        <td class="py-3 px-6 text-center"></td>
+                        <td class="py-3 px-6 text-center"></td>
+                        <td class="py-3 px-6 text-center"></td>
+                        <td class="py-3 px-6 text-center"></td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td class="py-3 px-6 text-left whitespace-nowrap">Totals</td>
-                        <td class="py-3 px-6 text-left">0</td>
-                        <td class="py-3 px-6 text-center">0</td>
-                        <td class="py-3 px-6 text-center">0</td>
-                        <td class="py-3 px-6 text-center">0</td>
+                        <td class="py-3 px-6 text-left whitespace-nowrap" >Totals</td>
+                        <td class="py-3 px-6 text-left" id="totalCalories">0</td>
+                        <td class="py-3 px-6 text-center" id="totalSugar">0</td>
+                        <td class="py-3 px-6 text-center" id="totalFat">0</td>
+                        <td class="py-3 px-6 text-center" id="totalSodium">0</td>
+                        <td class="py-3 px-6 text-center"></td>
+                        
                     </tr>
                 </tfoot>
             </table>
