@@ -2,7 +2,7 @@ const API_KEY_CALNINJA = '+40cLeSyYNm+60Js9fxkGg==5SSiByY4Ft03WQeF';
 const API_KEY_EDAMAM = '36fcabf8a939ed1dabc9f136b3c4910a';
 const EDAMAM_ID = '571e06f8';
 const foodNameEl = document.querySelector('#food-name');
-const containerEl = document.querySelector('.table-data');
+const tableDataEl = document.querySelector('.table-data');
 const searchFormEl = document.querySelector('#searchForm');
 const calorieValueEl = document.querySelector('#calorieValue');
 // const energyEl = document.querySelector("#energy");
@@ -15,9 +15,24 @@ const getItems = () => {
     return items || [];
 };
 const updateItems = (item) => {
-    const items = getItems();
-    items.push(item);
-    const encodeItems = JSON.stringify(items);
+    const currentItems = getItems();
+    let newItems = [];
+    if (currentItems.some((current) => item.name === current.name)) {
+        newItems = currentItems.map((current) => {
+            if (item.name === current.name) {
+                return {
+                    ...current,
+                    ...item,
+                };
+            } else {
+                return current;
+            }
+        });
+    } else {
+        currentItems.push(item);
+        newItems = currentItems;
+    }
+    const encodeItems = JSON.stringify(newItems);
     localStorage.setItem('items', encodeItems);
 };
 const formSubmitHandler = (event) => {
@@ -30,8 +45,8 @@ const formSubmitHandler = (event) => {
         console.log('Select a food');
     }
 };
-const getFood = (food) => {
-    const apiUrl = `https://api.edamam.com/api/nutrition-data?app_id=${EDAMAM_ID}&app_key=${API_KEY_EDAMAM}&ingr=${food}`;
+const getFood = (foodName) => {
+    const apiUrl = `https://api.edamam.com/api/nutrition-data?app_id=${EDAMAM_ID}&app_key=${API_KEY_EDAMAM}&ingr=${foodName}`;
     fetch(apiUrl)
         .then(function (response) {
             if (response.ok) {
@@ -43,7 +58,7 @@ const getFood = (food) => {
         .then(function (data) {
             // const item = data.items[0];
             const food = {
-                name: food,
+                name: foodName,
                 fat: data.totalNutrients.FAT.quantity,
                 sodium: data.totalNutrients.NA.quantity,
                 sugar: data.totalNutrients.SUGAR.quantity,
@@ -56,8 +71,8 @@ const getFood = (food) => {
             console.log(error);
         });
 };
-const getCalories = (food) => {
-    const apiUrl = `https://api.calorieninjas.com/v1/nutrition?query=${food}`;
+const getCalories = (foodName) => {
+    const apiUrl = `https://api.calorieninjas.com/v1/nutrition?query=${foodName}`;
     fetch(apiUrl, {
         headers: {
             'X-Api-Key': API_KEY_CALNINJA,
@@ -74,10 +89,11 @@ const getCalories = (food) => {
             console.log(data);
             const item = data.items[0];
             const food = {
-                name: food,
+                name: foodName,
                 calories: item.calories,
             };
             updateItems(food);
+            renderItems();
         })
         .catch(function (error) {
             console.log(error);
@@ -85,7 +101,7 @@ const getCalories = (food) => {
 };
 const displayData = (food) => {
     fatEl.innerHTML += ` ${food.totalNutrients.FAT.quantity}g`;
-    sodiumEl.innerHTML += ` ${food.totalNutrients.SUGAR.quantity}g`;
+    sodiumEl.innerHTML += ` ${food.totalNutrients.NA.quantity}g`;
     sugarEl.innerHTML += ` ${food.totalNutrients.SUGAR.quantity}g`;
 };
 const renderItems = () => {
@@ -93,12 +109,26 @@ const renderItems = () => {
     let html = '';
     items.forEach((item) => {
         html += `
-            <div>
+        <tr class="border-b border-gray-200 hover:bg-gray-100">
+            <td class="py-3 px-6 text-left whitespace-nowrap">
                 ${item.name}
-            </div>
+            </td>
+            <td class="py-3 px-6 text-left">
+                ${item.calories}
+            </td>
+            <td class="py-3 px-6 text-center">
+                ${item.sugar}
+            </td>
+            <td class="py-3 px-6 text-center">
+                ${item.fat}
+            </td>
+            <td class="py-3 px-6 text-center">
+                ${item.sodium}
+            </td>
+        </tr>
         `;
     });
-    containerEl.innerHTML = html;
+    tableDataEl.innerHTML = html;
 };
 renderItems();
 searchFormEl.addEventListener('submit', formSubmitHandler);
