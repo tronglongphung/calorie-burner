@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calorie Counter</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="https://www.jsdelivr.com/package/npm/bulma">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -22,11 +22,6 @@
                 <div>
                     <aside>
                         <h3>Search food index</h3>
-                        <div>
-                            <div>
-                                <!-- <input type="text" placeholder="Enter Food Choice..."
-                                    aria-label="Recipient's username" aria-describedby="basic-addon2"
-                                    id="searchFoodIndex"> -->
                                 <div>
                                     <form id="searchForm" class="card-body">
                                         <input class="input is-warning" type="text" placeholder="Insert food name with amount" id="food-name">
@@ -55,14 +50,14 @@
             <table class="min-w-max w-full table-auto">
                 <thead>
                     <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Food</th>
+                        <th class="py-3 px-6 text-left">Food Name</th>
                         <th class="py-3 px-6 text-left">Calorie</th>
-                        <th class="py-3 px-6 text-center">Proten</th>
                         <th class="py-3 px-6 text-center">Fat</th>
+                        <th class="py-3 px-6 text-center">Sugar</th>
                         <th class="py-3 px-6 text-center">Sodium</th>
                     </tr>
                 </thead>
-                <tbody class="text-gray-600 text-sm font-light">
+                <tbody class="text-gray-600 text-sm font-light table-data">
                     <tr class="border-b border-gray-200 hover:bg-gray-100">
                         <td class="py-3 px-6 text-left whitespace-nowrap">
                             Apple
