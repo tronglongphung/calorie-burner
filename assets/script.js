@@ -16,6 +16,11 @@ const getItems = () => {
     return items || [];
 };
 
+const loadingIndicator = (toggle) => {
+    document.querySelector('#searchForm .material-icons').textContent = toggle ? 'loop' : 'fastfood';
+    document.querySelector('#searchForm .material-icons').classList.toggle('spinner', toggle);
+};
+
 const updateItems = (item) => {
     const currentItems = getItems();
     let newItems = [];
@@ -44,6 +49,7 @@ const formSubmitHandler = (event) => {
     if (foodName) {
         getFood(foodName);
         getCalories(foodName);
+        loadingIndicator(true);
     } else {
         console.log('Select a food');
     }
@@ -99,6 +105,7 @@ const getCalories = (foodName) => {
             };
             updateItems(food);
             renderItems();
+            loadingIndicator(false);
         })
         .catch(function (error) {
             console.log(error);
